@@ -1,12 +1,72 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Página 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <title>Exercício JS</title>
 </head>
+
 <body>
-    <h1>Hello world!</h1>
+
+    <div class="row col-lg-1 ">
+        <br>
+        <table id="tblPassageiros"></table>
+        <br>
+        <div class="row col-lg-1 ">
+            <div class="col-lg-1">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">Go!</button>
+                </span>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
+<script>
+    function incluirPassageiro(pPassageiro, pLista) {
+        pLista.push(pPassageiro);
+        var table = document.getElementById('tblPassageiros');
+        var row = table.insertRow(table.getElementsByTagName('tr').length);
+        row.innerHTML = '<td>' + (table.getElementsByTagName('tr').length) + '</td> <td>' + pPassageiro + '</td>';
+    }
+
+    function excluirPassageiro(pPassageiro, pLista) {
+        var cont = 0;
+        for (var index = 0; index <= pLista.length; index++) {
+            if (pLista[index] == pPassageiro) {
+                pLista[index] = undefined;
+                cont++;
+            }
+        }
+
+        if (cont == 0) {
+            return 'Nenhum passageiro encontrado.';
+        }
+        else {
+            return cont + ' passageiro(s) excluído(s).';
+        }
+    }
+
+</script>
+
+
+
 </html>
